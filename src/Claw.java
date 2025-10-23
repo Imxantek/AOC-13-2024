@@ -1,11 +1,11 @@
 public class Claw {
-    private int Ax;
-    private int Ay;
-    private int Bx;
-    private int By;
-    private int prizeX;
-    private int prizeY;
-    public Claw(int ax, int ay, int bx, int by, int prizeX, int prizeY) {
+    private long Ax;
+    private long Ay;
+    private long Bx;
+    private long By;
+    private long prizeX;
+    private long prizeY;
+    public Claw(long ax, long ay, long bx, long by, long prizeX, long prizeY) {
         this.Ax = ax;
         this.Ay = ay;
         this.Bx = bx;
@@ -13,9 +13,9 @@ public class Claw {
         this.prizeX = prizeX;
         this.prizeY = prizeY;
     }
-    public int nrOfTokens(){
-        int A, B;
-        int d0, d1, d2;
+    public long nrOfTokens(){
+        long A, B;
+        long d0, d1, d2;
         d0=Ax*By-Bx*Ay;
         d1=prizeX*By-prizeY*Bx;
         d2=Ax*prizeY-Ay*prizeX;

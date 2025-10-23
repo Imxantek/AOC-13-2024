@@ -8,7 +8,8 @@ public class Main {
         try{
             String line;
             BufferedReader br = new BufferedReader(new FileReader("AOC-13.txt"));
-            int i = 0, ax=0, ay=0, bx=0, by=0, prizeX=0, prizeY=0;
+            int i = 0;
+            long ax=0, ay=0, bx=0, by=0, prizeX=0, prizeY=0;
             while(true) {
                 line = br.readLine();
                 if(i%4==0){
@@ -16,28 +17,28 @@ public class Main {
                     String axString = split[1];
                     String ayString = split[2];
                     axString=axString.substring(0,axString.indexOf(","));
-                    ax = Integer.parseInt(axString);
-                    ay = Integer.parseInt(ayString);
+                    ax = Long.parseLong(axString);
+                    ay = Long.parseLong(ayString);
                 }
                 if(i%4==1){
                     String[] split = line.split("\\+");
                     String bxString = split[1];
                     String byString = split[2];
                     bxString=bxString.substring(0,bxString.indexOf(","));
-                    bx = Integer.parseInt(bxString);
-                    by = Integer.parseInt(byString);
+                    bx = Long.parseLong(bxString);
+                    by = Long.parseLong(byString);
                 }
                 if(i%4==2){
                     String[] split = line.split("=");
                     String prizeXString = split[1];
                     String prizeYString = split[2];
                     prizeXString=prizeXString.substring(0,prizeXString.indexOf(","));
-                    prizeX = Integer.parseInt(prizeXString);
-                    prizeY=Integer.parseInt(prizeYString);
+                    prizeX = Long.parseLong(prizeXString)+10000000000000L;
+                    prizeY=Long.parseLong(prizeYString)+10000000000000L;
                 }
                 if(i%4==3){
                     Claw claw=new Claw(ax, ay, bx, by, prizeX, prizeY);
-                    claw.print();
+//                    claw.print();
                     claws.add(claw);
                 }
                 i++;
@@ -50,7 +51,7 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Claw> claws = new ArrayList<>();
         load(claws);
-        int tokens=0;
+        long tokens=0;
         for(Claw claw:claws){
             if(claw.nrOfTokens()!=-1){
                 tokens+=claw.nrOfTokens();
